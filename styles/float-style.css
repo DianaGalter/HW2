@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'Montserrat SemiBold';
+    font-style: bold;
+    font-weight: 400;
+    src: local('Montserrat-SemiBold'), url('/fonts/Montserrat-SemiBold.woff2') format('woff2'), url('/fonts/Montserrat-SemiBold.woff') format('woff'), url('/fonts/Montserrat-SemiBold.ttf') format('ttf'), url('/fonts/Montserrat-SemiBold.eot') format('eot');
+}
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+
+/*Wrapper*/
+
+.wrapper {
+    width: 800px;
+    height: 600px;
+}
+
+.wrapper--bg {
+    background-image: url(../img/background.png);
+}
+
+.wrapper--position-center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+
+/*widget*/
+
+.widget {
+    width: 615px;
+    height: 410px;
+}
+
+.widget--position-center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+
+
+/*cube*/
+
+.cube {
+    width: 205px;
+    height: 205px;
+    color: white;
+}
+
+.cube--float {
+    float: left;
+    overflow: hidden;
+    text-align: center;
+}
+
+.cube--font-style {
+    font-family: 'Montserrat Semi Bold', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.cube--bg-blue {
+    background-color: rgb(0, 192, 226);
+}
+
+.cube--bg-green {
+    background-color: rgb(91, 217, 152);
+}
+
+.cube--bg-violet {
+    background-color: rgb(117, 88, 248);
+}
+
+.cube--bg-yellow {
+    background-color: rgb(233, 193, 77);
+}
+
+.cube--bg-crimson {
+    background-color: rgb(229, 86, 121);
+}
+
+.cube--bg-orchid {
+    background-color: rgb(203, 112, 214);
+}
+
+
+/*weather-icons*/
+
+.cube__icon {
+    width: 90px;
+    height: 80px;
+    background-size: cover;
+}
+
+.cube__icon--position {
+    position: relative;
+    margin: 20% auto;
+}
+
+.cube__icon--bg-cloud {
+    background-image: url(../icons/Cloud.png);
+}
+
+.cube__icon--bg-fog {
+    background-image: url(../icons/Fog.png);
+}
+
+.cube__icon--bg-gusty {
+    background-image: url(../icons/Gusty.png);
+}
+
+.cube__icon--bg-patchy-snow {
+    background-image: url(../icons/PatchySnow.png);
+}
+
+.cube__icon--bg-rainy {
+    background-image: url(../icons/Rainy.png);
+}
+
+.cube__icon--bg-sunny-spells {
+    background-image: url(../icons/SunnySpells.png);
+}
+
+.cube__icon--m-size {
+    width: 63px;
+    height: 66px;
+    margin: 20px auto;
+}
+
+.cube__icon--s-size {
+    background-size: cover;
+    width: 25px;
+    height: 22px;
+    padding: 2px;
+    margin: 0 auto;
+}
+
+
+/*название города*/
+
+.cube__town {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: -20px;
+}
+
+
+/*прогноз на неделю*/
+
+.forecast {
+    height: 80px;
+    width: 185px;
+}
+
+.forecast--float {
+    padding: 10px;
+}
+
+.forecast__item {
+    font-size: 0.75em;
+    width: 46px;
+    height: 80px;
+}
+
+.forecast__item--float {
+    float: left;
+}
+
+.forecast__item-value {
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 auto;
+}
+
+.forecast--gradient {
+    background: -moz-radial-gradient(center, ellipse cover, rgba(155, 59, 75, 0) 1%, rgba(156, 60, 79, 0) 27%, rgba(160, 61, 89, 0.65) 100%);
+    /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(155, 59, 75, 0) 1%, rgba(156, 60, 79, 0) 27%, rgba(160, 61, 89, 0.65) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(155, 59, 75, 0) 1%, rgba(156, 60, 79, 0) 27%, rgba(160, 61, 89, 0.65) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59', GradientType=1);
+}
+
+@media only screen and (max-device-width: 480px) {
+    .wrapper {
+        width: 615px;
+        height: 900px;
+    }
+    .wrapper--bg {
+        background-image: url(../img/handheld.jpg);
+        background-size: cover;
+    }
+    /*widget*/
+    .widget {
+        width: 500px;
+        height: 750px;
+    }
+    /*cube*/
+    .cube {
+        width: 250px;
+        height: 250px;
+    }
+    .cube--font-style {
+        font-size: 1.5rem;
+    }
+    .cube__icon {
+        background-size: cover;
+        width: 110px;
+        height: 100px;
+    }
+    .cube__icon--m-size {
+        background-size: cover;
+        width: 80px;
+        height: 85px;
+    }
+    .cube__icon--s-size {
+        background-size: cover;
+        width: 25px;
+        height: 23px;
+    }
+    .forecast {
+        height: 86px;
+        width: 210px;
+        padding: 20px;
+    }
+    .forecast__item {
+        font-size: 1rem;
+        width: 52px;
+        height: 86px;
+    }
+}

@@ -9,10 +9,9 @@
        url('/fonts/Montserrat-SemiBold.eot') format('eot');
 }
 
-html, body {
-    position: relative;
-    height: 100%;
-
+html {
+    margin: 0;
+    padding: 0;
 }
 
 /*Wrapper*/
@@ -23,48 +22,38 @@ html, body {
 }
 
 .wrapper--bg {
-  background-image: url(img/background.png);
+  background-image: url(../img/background.png);
 }
 
 .wrapper--position-center {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 /*widget*/
 
 .widget {
     width: 615px;
     height: 410px;
-}
+    margin: 0 auto;
+  }
 
-.widget--position-center {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%;
-}
 
 /*cube*/
 
 .cube {
-    width: 33.3%;
-    height: 50%;
+    height: 205px;
     color: white;
-}
-
-.cube--float {
-  float: left;
-  overflow: hidden;
-  text-align: center;
 }
 
 .cube--font-style {
   font-family: 'Montserrat Semi Bold',sans-serif;
   font-weight: bold;
   font-size: 1rem;
+  text-align: center;
 }
 
 .cube--bg-blue {
@@ -89,80 +78,66 @@ html, body {
 /*weather-icons*/
 
 .cube__icon {
-  width: 45%;
-  height: 40%;
-  background-size: cover;
+  display: inline-block;
+    width: 90px;
+    height: 80px;
 }
-.cube__icon--position {
-  position: relative;
-  margin: 20% auto;
-}
-
 
 .cube__icon--bg-cloud {
-    background-image: url(icons/Cloud.png);
+    background-image: url(../icons/Cloud.png);
 }
 .cube__icon--bg-fog {
-    background-image: url(icons/Fog.png);
+    background-image: url(../icons/Fog.png);
 }
 .cube__icon--bg-gusty {
-    background-image: url(icons/Gusty.png);
+    background-image: url(../icons/Gusty.png);
 }
 .cube__icon--bg-patchy-snow {
-    background-image: url(icons/PatchySnow.png);
+    background-image: url(../icons/PatchySnow.png);
 }
 .cube__icon--bg-rainy {
-    background-image: url(icons/Rainy.png);
+    background-image: url(../icons/Rainy.png);
 }
 .cube__icon--bg-sunny-spells {
-    background-image: url(icons/SunnySpells.png);
+    background-image: url(../icons/SunnySpells.png);
 }
 
 .cube__icon--s-size {
     background-size: cover;
-    width: 60%;
-    height: 33%;
-    padding: 5%;
-    margin: 0 auto;
+    width: 25px;
+    height: 22px;
 }
 
 .cube__icon--m-size {
-    width: 31%;
-    height: 32%;
-    margin: 10% auto;
+    width: 63px;
+    height: 66px;
 }
 
 /*название города*/
 .cube__town {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-top: -10%;
+    display: inline-block;
+    margin-top: 1em;
 }
-
 
 /*прогноз на неделю*/
 .forecast {
-    height: 30%;
-    width: 80%;
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    width: 100%;
+    list-style-type: none;
 }
 
-.forecast--float {
-    padding: 10%;
-}
 .forecast__item {
-    font-size: 0.75em;
     width: 25%;
-    height: 100%;
-}
-.forecast__item--float{
-    float: left;
 }
 .forecast__item-value{
-    width: 100%;
-    height: 30%;
-    padding: 3%;
-    margin: 0 auto;
+    height: auto;
+    font-size: 9pt;
+}
+
+.forecast--bgcolor-crimson2 {
+  background-color: rgb(203, 76, 108);
 }
 
 .forecast--gradient {
@@ -171,34 +146,14 @@ html, body {
     background: radial-gradient(ellipse at center, rgba(155,59,75,0) 1%,rgba(156,60,79,0) 27%,rgba(160,61,89,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59',GradientType=1 );
 }
-
-@media only screen and (max-device-width: 480px) {
+@media (max-width: @screen-xs-max) {
   .wrapper {
       width: 80%;
       height: 80%;
   }
 
   .wrapper--bg {
-    background-image: url(img/handheld.jpg);
+    background-image: url(../img/handheld.jpg);
     background-size: cover;
-  }
-
-  /*widget*/
-
-  .widget {
-      width: 80%;
-      height: 75%;
-  }
-  
-  /*cube*/
-
-  .cube {
-      width: 50%;
-      height: 34%;
-      color: white;
-  }
-
-  .cube--font-style {
-    font-size: 2rem;
   }
 }
