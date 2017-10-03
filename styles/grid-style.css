@@ -26,8 +26,8 @@ html, body {
 /*Wrapper*/
 
 .wrapper {
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -38,7 +38,7 @@ html, body {
 }
 
 .wrapper--bg {
-    background-image: url(../img/background.png);
+    background-image: url(../img/forest.jpg);
 }
 
 .wrapper--position-center {
@@ -52,8 +52,10 @@ html, body {
 /*widget*/
 
 .widget {
-    width: 615px;
-    height: 410px;
+  max-width: 615px;
+  width: 80%;
+  height: auto;
+    box-shadow:  0 0 40px 25px rgba(0,0,0,0.5);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -72,11 +74,11 @@ html, body {
     display: grid;
     justify-items: center;
     align-items: center;
-    justify-content: space-around;
-    grid-template-rows: 20% 20% 15% 30% 15%;
+    justify-content: center;
+    grid-template-rows: 15% 35% 15% 35%;
 
     display: -ms-grid;
-    -ms-grid-rows:20% 20% 15% 30% 15%;
+    -ms-grid-rows:25% 25% 25% 25%;
 }
 
 
@@ -117,7 +119,7 @@ html, body {
 .cube__icon {
     width: 90px;
     height: 80px;
-    grid-row: 2 / 4;
+    grid-row: 2 / 3;
 }
 
 .cube__icon--bg-cloud {
@@ -144,34 +146,36 @@ html, body {
     background-image: url(../icons/SunnySpells.png);
 }
 
+.cube__icon--m-size {
+    width: 63px;
+    height: 66px;
+    margin: 9.8% auto;
+}
+
 .cube__icon--s-size {
     background-size: cover;
     width: 25px;
     height: 22px;
     grid-row: 2 / span 2;
+    margin: 0 auto;
 }
-
-.cube__icon--m-size {
-    width: 63px;
-    height: 66px;
-}
-
 
 /*название города*/
 
 .cube__town {
-    grid-row: 4;
+    grid-row-start: 4;
 }
 
 .cube--forecast {
     display: grid;
-    grid-template-rows: 105px 100px;
+    grid-template-rows: 52% 48%;
     justify-items: stretch;
     justify-content: stretch;
 }
 
 .cube--forecast>.cube__icon {
     grid-row: 1;
+    -ms-grid-row: 1;
     justify-self: center;
 }
 
@@ -179,17 +183,18 @@ html, body {
 /*прогноз на неделю*/
 
 .forecast {
-    height: 70px;
+    height: 100%;
+    -ms-grid-row: 2;
     grid-row: 2;
     display: grid;
     justify-items: center;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 15px;
+    padding: 15%;
 }
 
 .forecast__item {
-    height: 70px;
+    height: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;

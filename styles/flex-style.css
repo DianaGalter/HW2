@@ -15,12 +15,12 @@ html, body {
 /*Wrapper*/
 
 .wrapper {
-    width: 800px;
-    height: 600px;
+    width: 100%;
+    height: 100%;
 }
 
 .wrapper--bg {
-    background-image: url(../img/background.png);
+    background-image: url(../img/forest.jpg);
 }
 
 .wrapper--position-center {
@@ -34,8 +34,10 @@ html, body {
 /*widget*/
 
 .widget {
-    width: 615px;
-    height: 410px;
+    box-shadow: 0 0 40px 25px rgba(0, 0, 0, 0.5);
+    max-width: 615px;
+    width: 80%;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
 }
@@ -51,8 +53,9 @@ html, body {
 /*cube*/
 
 .cube {
-    width: 205px;
-    height: 205px;
+    box-sizing: border-box;
+    width: 33.33%;
+    height: auto;
     color: white;
 }
 
@@ -101,7 +104,7 @@ html, body {
     width: 90px;
     height: 80px;
     background-size: cover;
-    margin: 15px;
+    margin: 18.6%;
 }
 
 .cube__icon--bg-cloud {
@@ -127,17 +130,20 @@ html, body {
 .cube__icon--bg-sunny-spells {
     background-image: url(../icons/SunnySpells.png);
 }
+
 .cube__icon--m-size {
-    margin-top: 10%;
+    margin: 9.8% auto;
     width: 63px;
     height: 66px;
     background-size: cover;
 }
+
 .cube__icon--s-size {
     background-size: cover;
     width: 25px;
     height: 22px;
-    margin: 0;
+    padding: 8%;
+    margin: 0 auto;
 }
 
 
@@ -146,14 +152,17 @@ html, body {
 .cube__town {
     width: 100%;
     height: auto;
+    padding-bottom: 15%;
 }
 
 
 /*прогноз на неделю*/
+
 .forecast {
-    height: 80px;
+    box-sizing: border-box;
+    height: 48%;
     width: 100%;
-    padding: 11px;
+    padding: 4.9%;
 }
 
 .forecast--flex {
@@ -166,7 +175,7 @@ html, body {
 .forecast__item {
     font-size: 0.75rem;
     width: 25%;
-    height: 80px;
+    height: 100%;
 }
 
 .forecast__item--flex {
@@ -195,50 +204,27 @@ html, body {
 }
 
 @media only screen and (max-device-width: 480px) {
-    .wrapper {
-        width: 615px;
-        height: 900px;
-    }
     .wrapper--bg {
         background-image: url(../img/handheld.jpg);
         background-size: cover;
     }
     /*widget*/
     .widget {
-        width: 500px;
-        height: 750px;
+        width: 80%;
+        height: auto;
     }
     /*cube*/
     .cube {
-        width: 250px;
-        height: 250px;
+        width: 50%;
+        height: 33.33%;
     }
     .cube--font-style {
-        font-size: 1.5rem;
-    }
-    .cube__icon {
-        background-size: cover;
-        width: 110px;
-        height: 100px;
-    }
-    .cube__icon--m-size {
-        background-size: cover;
-        width: 80px;
-        height: 85px;
-    }
-    .cube__icon--s-size {
-        background-size: cover;
-        width: 25px;
-        height: 23px;
-    }
-    .forecast {
-        height: 86px;
-        width: 210px;
-        padding: 20px;
+        font-size: 2rem;
     }
     .forecast__item {
-        font-size: 1rem;
-        width: 52px;
-        height: 86px;
+        font-size: 1.5rem;
+    }
+    .forecast__item-value {
+        margin: 11.5% auto;
     }
 }
