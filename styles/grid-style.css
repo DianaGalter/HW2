@@ -16,7 +16,6 @@ html, body {
     justify-items: center;
     align-items: center;
     height: 100%;
-
     display: -ms-grid;
     -ms-grid-column-align: center;
     -ms-grid-row-align: center;
@@ -31,7 +30,6 @@ html, body {
     display: grid;
     justify-items: center;
     align-items: center;
-
     display: -ms-grid;
     -ms-grid-column-align: center;
     -ms-grid-row-align: center;
@@ -52,18 +50,16 @@ html, body {
 /*widget*/
 
 .widget {
-  max-width: 615px;
-  width: 80%;
-  height: auto;
-    box-shadow:  0 0 40px 25px rgba(0,0,0,0.5);
+    max-width: 615px;
+    width: 80%;
+    height: auto;
+    box-shadow: 0 0 40px 25px rgba(0, 0, 0, 0.5);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-
     display: -ms-grid;
     -ms-grid-columns: 1fr 1fr 1fr;
     -ms-grid-rows: 1fr 1fr;
-
 }
 
 
@@ -75,12 +71,10 @@ html, body {
     justify-items: center;
     align-items: center;
     justify-content: center;
-    grid-template-rows: 1fr 2fr 1fr 1fr 1fr;
-
+    grid-template-rows: 0.5fr 2.5fr 0.5fr 0.5fr 0.5fr;
     display: -ms-grid;
-    -ms-grid-rows:25% 25% 25% 25%;
+    -ms-grid-rows: 1fr 2fr 1fr 1fr 1fr;
 }
-
 
 .cube--font-style {
     font-family: 'Montserrat Semi Bold', sans-serif;
@@ -119,7 +113,7 @@ html, body {
 .cube__icon {
     width: 90px;
     height: 80px;
-    grid-row: 2 / 4;
+    grid-row: 2;
 }
 
 .cube__icon--bg-cloud {
@@ -160,15 +154,17 @@ html, body {
     margin: 0 auto;
 }
 
+
 /*название города*/
 
 .cube__town {
-    grid-row-start: 4;
+    grid-row: 4;
 }
 
 .cube--forecast {
     display: grid;
-    grid-template-rows: 52% 48%;
+    box-sizing: border-box;
+    grid-template-rows: 1fr 1fr;
     justify-items: stretch;
     justify-content: stretch;
 }
@@ -190,7 +186,6 @@ html, body {
     justify-items: center;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 15%;
 }
 
 .forecast__item {
@@ -223,58 +218,22 @@ html, body {
 }
 
 @media only screen and (max-device-width: 480px) {
-    .wrapper {
-        width: 615px;
-        height: 900px;
-    }
-    .wrapper--bg {
-        background-image: url(../img/handheld.jpg);
-        background-size: cover;
-    }
-    /*widget*/
+        /*widget*/
     .widget {
-        width: 500px;
-        height: 750px;
+        width: 80%;
+        height: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     }
-
-  /*cube*/
-
-  .cube {
-      color: white;
-  }
-
-  .cube--font-style {
-    font-size: 1.5rem;
-  }
-
-  .cube__icon {
-    width: 110px;
-    height: 100px;
-    background-size: cover;
-  }
-  .cube__icon--m-size {
-      width: 80px;
-      height: 85px;
-  }
-  .cube__icon--s-size {
-      background-size: cover;
-      width: 25px;
-      height: 23px;
-      grid-row: 2 / span 2;
-  }
-  .cube--forecast {
-      grid-template-rows: 130px 120px;
-  }
-  .forecast {
-      height: 80px;
-      padding: 20px;
-  }
-  .forecast__item {
-      height: 80px;
-      font-size: 1.5rem;
-}
-
+    /*cube*/
+    .cube {
+        color: white;
+    }
+    .cube--font-style {
+        font-size: 1.5rem;
+    }
+    .forecast__item {
+        font-size: 1.5rem;
+    }
 }
