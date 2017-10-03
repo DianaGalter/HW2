@@ -75,7 +75,7 @@ html, body {
     justify-items: center;
     align-items: center;
     justify-content: center;
-    grid-template-rows: 15% 35% 15% 35%;
+    grid-template-rows: 1fr 2fr 1fr 1fr 1fr;
 
     display: -ms-grid;
     -ms-grid-rows:25% 25% 25% 25%;
@@ -119,7 +119,7 @@ html, body {
 .cube__icon {
     width: 90px;
     height: 80px;
-    grid-row: 2 / 3;
+    grid-row: 2 / 4;
 }
 
 .cube__icon--bg-cloud {
