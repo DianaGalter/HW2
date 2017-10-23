@@ -5,7 +5,7 @@ html, body {
     background-color: #e8f1ff;
 }
 .wrapper {
-    width: 25rem;
+    width: 35rem;
     padding: 1rem;
     background-color: white;
     color: #33328D;
@@ -48,10 +48,10 @@ html, body {
 }
 .todo-list__li {
     position: relative;
-    display: block;
+    display: inline-block;
     width: 100%;
     height: auto;
-    height: 1.5rem;
+    min-height: 1.5rem;
     cursor: pointer;
 }
 .delete {
@@ -85,7 +85,7 @@ html, body {
     display: block;
 }
 .data-today {
-    position: absolute;
+    position: relative;
     left: 60%;
 }
 .task {
@@ -94,6 +94,16 @@ html, body {
     float: left;
     font-size: 1.2rem;
     cursor: pointer;
+}
+.task__text {
+    display: inline-block;
+    width: 320px;
+    word-wrap: break-word;
+}
+.mark {
+    position: relative;
+    float: left;
+    top: 0;
 }
 .mark:checked + .task__text{
     text-decoration: line-through;

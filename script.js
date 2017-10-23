@@ -7,13 +7,14 @@ var l = console.log;
 
 wrapper.onclick = function(e) {
     var target = e.target;
-    if (target.classList.contains('delete')) {
+    var targetClassList = target.classList;
+    if (targetClassList.contains('delete')) {
         removeTask(target);
     };
-    if (target.classList.contains('deadline')) {
+    if (targetClassList.contains('deadline')) {
         addDeadline(target);
     };
-    if (target.classList.contains('mark-all')) {
+    if (targetClassList.contains('mark-all__checkbox')) {
         allChecked();
     };
 
@@ -30,7 +31,7 @@ function addTask(task) {
     var taskHTML = `<li class="todo-list__li">
         <label class="task">
             <input type="checkbox" class="mark">
-            <span class="task__text">` + task + `</span>
+            <div class="task__text">` + task + `</div>
         </label>
         <a class="deadline" title="Set the deadline"></a>
         <a class="delete" title="Delete the task"></a>
