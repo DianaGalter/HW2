@@ -1,0 +1,93 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #e8f1ff;
+}
+.wrapper {
+    width: 25rem;
+    padding: 1rem;
+    background-color: white;
+    color: #33328D;
+    border-radius: 5%;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 5%);
+
+    text-align: center;
+}
+
+.task-input {
+    width: 90%;
+    height: 1.7rem;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+}
+.task-input::placeholder {
+    color: #8f8ec0;
+}
+.mark-all {
+    /*display: none;*/
+    width: 90%;
+    display: block;
+    text-align: left;
+    padding-left: 5%;
+    margin: 0.2rem 0;
+    opacity: 0.7;
+}
+.mark-all:hover {
+    opacity: 1;
+}
+.todo-list {
+    margin: 1rem;
+    list-style: none;
+    padding-left: 0;
+}
+.todo-list__li {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    height: 1.5rem;
+    cursor: pointer;
+}
+.delete {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 95%;
+    background-image: url(delete.png);
+    background-size: cover;
+    display: none;
+    cursor: pointer;
+}
+.delete:hover {
+    background-image: url(delete-hover.png);
+}
+.deadline {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 85%;
+    background-image: url(time.png);
+    background-size: cover;
+    cursor: pointer;
+    display: none;
+}
+.deadline:hover {
+    background-image: url(time-hover.png);
+}
+.todo-list__li:hover .delete, .todo-list__li:hover .deadline {
+    display: block;
+}
+.task {
+    position: relative;
+    text-align: left;
+    float: left;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.mark:checked + .task__text{
+    text-decoration: line-through;
+}
