@@ -28,13 +28,15 @@ html, body {
     color: #8f8ec0;
 }
 .mark-all {
-    /*display: none;*/
     width: 90%;
     display: block;
     text-align: left;
     padding-left: 5%;
     margin: 0.2rem 0;
     opacity: 0.7;
+}
+.invisible {
+    display: none;
 }
 .mark-all:hover {
     opacity: 1;
@@ -53,10 +55,10 @@ html, body {
     cursor: pointer;
 }
 .delete {
-    position: absolute;
+    position: relative;
     width: 22px;
     height: 22px;
-    left: 95%;
+    float: right;
     background-image: url(delete.png);
     background-size: cover;
     display: none;
@@ -78,8 +80,13 @@ html, body {
 .deadline:hover {
     background-image: url(time-hover.png);
 }
+
 .todo-list__li:hover .delete, .todo-list__li:hover .deadline {
     display: block;
+}
+.data-today {
+    position: absolute;
+    left: 60%;
 }
 .task {
     position: relative;
@@ -89,5 +96,8 @@ html, body {
     cursor: pointer;
 }
 .mark:checked + .task__text{
+    text-decoration: line-through;
+}
+.cross-out {
     text-decoration: line-through;
 }
