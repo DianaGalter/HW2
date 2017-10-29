@@ -104,7 +104,7 @@ html, body {
     width: 90px;
     height: 80px;
     background-size: cover;
-    margin: 18.6%;
+    margin: 16%;
 }
 
 .cube__icon--bg-cloud {
@@ -159,10 +159,12 @@ html, body {
 /*прогноз на неделю*/
 
 .forecast {
+    position: relative;
     box-sizing: border-box;
     height: 48%;
     width: 100%;
-    padding: 4.9%;
+    padding: 4%;
+    bottom: 1%;
 }
 
 .forecast--flex {
@@ -203,28 +205,29 @@ html, body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59', GradientType=1);
 }
 
-@media only screen and (max-device-width: 480px) {
-    .wrapper--bg {
-        background-image: url(../img/handheld.jpg);
-        background-size: cover;
-    }
-    /*widget*/
-    .widget {
-        width: 80%;
-        height: auto;
-    }
+@media only screen and (max-width: 480px) {
+
     /*cube*/
     .cube {
         width: 50%;
         height: 33.33%;
     }
-    .cube--font-style {
-        font-size: 2rem;
+    .cube__icon {
+        width: 54px;
+        height: 48px;
     }
-    .forecast__item {
-        font-size: 1.5rem;
+    .cube__icon--m-size {
+        width: 37.8px;
+        height: 39.6px;
+    }
+    .cube__icon--s-size {
+        width: 15px;
+        height: 13.2px;
+    }
+    .forecast {
+        bottom: 0;
     }
     .forecast__item-value {
-        margin: 11.5% auto;
+        margin: 7% auto;
     }
 }

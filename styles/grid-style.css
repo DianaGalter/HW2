@@ -217,7 +217,7 @@ html, body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59', GradientType=1);
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 480px) {
         /*widget*/
     .widget {
         width: 80%;
