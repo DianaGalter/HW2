@@ -114,7 +114,7 @@ html, body {
 
 .cube__icon--position {
     position: relative;
-    margin: 18.6% auto;
+    margin: 16% auto;
 }
 
 .cube__icon--bg-cloud {
@@ -144,7 +144,7 @@ html, body {
 .cube__icon--m-size {
     width: 63px;
     height: 66px;
-    margin: 9.8% auto;
+    margin: 6.8% auto;
 }
 
 .cube__icon--s-size {
@@ -180,7 +180,7 @@ html, body {
 }
 
 .forecast__item {
-    font-size: 0.75em;
+    font-size: 0.75rem;
     width: 25%;
     height: 100%;
 }
@@ -206,29 +206,28 @@ html, body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59', GradientType=1);
 }
 
-@media only screen and (max-device-width: 480px) {
-    /*widget*/
-    .widget {
-        width: 80%;
-        height: auto;
-    }
-    /*cube*/
+@media only screen and (max-width: 480px) {
     .cube {
         width: 50%;
-        height: 33.33%;
+        height: 33.3%;
     }
     .cube--font-style {
-        font-size: 1.5rem;
+        font-size: 85%;
     }
-    /*.forecast {
-        height: 86px;
-        width: 210px;
-        padding: 20px;
-    }*/
+    .cube__icon {
+        width: 54px;
+        height: 48px;
+    }
+    .cube__icon--m-size {
+        width: 37.8px;
+        height: 39.6px;
+        margin: 8.3% auto;
+    }
+    .cube__icon--s-size {
+        width: 15px;
+        height: 13.2px;
+    }
     .forecast__item {
-        font-size: 1.2rem;
+        font-size: 70%;
     }
-    /*  width: 52px;
-        height: 86px;
-    }*/
 }
