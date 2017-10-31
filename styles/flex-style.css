@@ -208,22 +208,18 @@ html, body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59', GradientType=1);
 }
 
-.city_input {
+.current-city {
     width: 60%;
     height: 60%;
     opacity: 0.9;
     background-color: rgb(203, 76, 108);
 
-    font-size: 1.5rem;
-    color: white;
-
     position: absolute;
-    outline: 1px solid;
     position: absolute;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;
-
+    display: none;
 }
 
 @media only screen and (max-width: 480px) {
@@ -252,4 +248,3 @@ html, body {
         margin: 7% auto;
     }
 }
-
