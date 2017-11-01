@@ -22,7 +22,7 @@ for (var i = 0; i < 6; i++) {
 };
 
 /*узнаем погоду для известных нам городов раз в 10 минут*/
-var tinerID = setInterval(function() {
+var timerID = setInterval(function() {
 	for (var i = 0; i < 6; i++) {
 		request(cityList[i], i);
 	}
