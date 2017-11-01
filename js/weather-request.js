@@ -6,7 +6,7 @@ var response;
 
 /*очень странное действие, но не знаю, как иначе избежать названий городов с пробелами*/
 var cityList = [];
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i < 6; i++) {
 	cityList[i] = CITY_LIST_DOM[i].innerHTML.split(' ');
 	cityList[i].pop();
 	cityList[i].pop();
@@ -17,11 +17,9 @@ for (var i = 0; i < 5; i++) {
 	}
 };
 
-
 /*узнаем погоду для известных нам городов*/
 for (var i = 0; i < 5; i++) {
-	//request(cityList[i], i);
-	// CITY_LIST_DOM[i].innerHTML = cityList[i] + ' / ' + temp.list[0].main.temp + '°';
+	request(cityList[i], i);
 }
 
 /*Повесим выбор города по клику на центральный виджет*/
