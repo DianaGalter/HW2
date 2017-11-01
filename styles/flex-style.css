@@ -133,8 +133,8 @@ html, body {
 
 .cube__icon--s-size {
     background-size: cover;
-    width: 25px;
-    height: 22px;
+    width: 23px;
+    height: 19px;
     padding: 5%;
     margin: 0 auto;
 }
@@ -189,7 +189,7 @@ html, body {
     align-items: center;
 }
 
-.forecast__item-value {
+.forecast__item-date,  .forecast__item-temp{
     width: 100%;
 }
 
