@@ -158,6 +158,11 @@ html, body {
     cursor: pointer;
 }
 
+.city-input {
+    margin: 8% 0;
+    width: 80%;
+}
+
 /*прогноз на неделю*/
 
 .forecast {
@@ -166,7 +171,6 @@ html, body {
     height: 48%;
     width: 100%;
     padding: 4%;
-    bottom: 1%;
 }
 
 .forecast--flex {
@@ -175,6 +179,7 @@ html, body {
     justify-content: center;
     align-items: stretch;
 }
+
 
 .forecast__item {
     font-size: 0.75rem;
@@ -205,20 +210,6 @@ html, body {
     background: radial-gradient(ellipse at center, rgba(155, 59, 75, 0) 1%, rgba(156, 60, 79, 0) 27%, rgba(160, 61, 89, 0.65) 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009b3b4b', endColorstr='#a6a03d59', GradientType=1);
-}
-
-.current-city {
-    width: 60%;
-    height: 60%;
-    opacity: 0.9;
-    background-color: rgb(203, 76, 108);
-
-    position: absolute;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    display: none;
 }
 
 @media only screen and (max-width: 480px) {

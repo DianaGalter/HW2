@@ -4,7 +4,8 @@ const CITY_LIST_DOM = document.getElementsByClassName('cube__town');
 const FORECAST_ITEM_DATE = document.getElementsByClassName('forecast__item-date');
 const FORECAST_ITEM_TEMP = document.getElementsByClassName('forecast__item-temp');
 const CURRENT_CITY = document.getElementsByClassName('cube-forecast')[0];
-var response;
+const CURRENT_CITY_NAME = CURRENT_CITY.getElementsByClassName('cube__town--s')[0];
+
 
 /*http://api.openweathermap.org/data/2.5/forecast?q=chicago&units=metric&cnt=7&APPID=afe096a642b6dde980dedc455ac4daf6*/
 
@@ -22,16 +23,23 @@ for (var i = 0; i < 6; i++) {
 };
 
 /*узнаем погоду для известных нам городов раз в 10 минут*/
-var timerID = setInterval(function() {
-	for (var i = 0; i < 6; i++) {
-		request(cityList[i], i);
-	}
-}, 600000);
-
+// var timerID = setInterval(function() {
+// 	for (var i = 0; i < 6; i++) {
+// 		request(cityList[i], i);
+// 	}
+// }, 600000);
 
 /*Повесим выбор города по клику на центральный виджет*/
 CURRENT_CITY.onclick = function(e) {
 	var target = e.target;
+	const CURRENT_CITY_INPUT = CURRENT_CITY.getElementsByClassName('city-input')[0];
+	if(!CURRENT_CITY_INPUT) {
+		var input = document.createElement('input');
+		input.className = 'city-input';
+		input.placeholder = 'Choose you city';
+		CURRENT_CITY.insertBefore(input, CURRENT_CITY_NAME);
+		CURRENT_CITY_NAME.remove();
+	};
 };
 
 /*делаем запрос на сайт в соответствии с названием города*/
@@ -44,8 +52,7 @@ function request (city, num) {
 		if (xhr.status != 200) {
 			l(xhr.status + ': ' + xhr.statusText);
 		} else {
-			response = xhr.responseText;
-			requestHandling(city, num, response);
+			requestHandling(city, num, xhr.responseText);
 		};
 
 	};
