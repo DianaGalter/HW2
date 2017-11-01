@@ -817,10 +817,11 @@ var arr = {"cod":"200",
           "sys":{"pod":"d"},
           "dt_txt":"2017-11-06 15:00:00"}],
 
-          "city":{"id":4887398,
-          "name":"Chicago",
-          "coord":{"lat":41.85,
-          "lon":-87.6501},
-          "country":"US"}
+          "city":{
+              "id":4887398,
+              "name":"Chicago",
+              "coord":{"lat":41.85,
+              "lon":-87.6501},
+              "country":"US"}
       };
-      
+      l(arr.city.name.toUpperCase());

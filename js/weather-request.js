@@ -31,11 +31,11 @@ for (var i = 0; i < 6; i++) {
 for (var i = 0; i < 6; i++) {
 	request(cityList[i], i);
 };
-// var timerID = setInterval(function() {
-// 	for (var i = 0; i < 6; i++) {
-// 		request(cityList[i], i);
-// 	}
-// }, 600000);
+var timerID = setInterval(function() {
+	for (var i = 0; i < 6; i++) {
+		request(cityList[i], i);
+	}
+}, 600000);
 
 /*Повесим выбор города по клику на центральный виджет*/
 CURRENT_CITY.onclick = function(e) {
@@ -49,10 +49,11 @@ CURRENT_CITY.onclick = function(e) {
 
 CURRENT_CITY_FORM.onsubmit = function (e) {
 	e.preventDefault();
-	CURRENT_CITY_NAME.innerHTML = CURRENT_CITY_INPUT.value.toUpperCase();
+
+	var inputValue = CURRENT_CITY_INPUT.value;
 	CURRENT_CITY_NAME.classList.toggle('invisible');
 	CURRENT_CITY_INPUT.classList.toggle('invisible');
-	request(CURRENT_CITY_NAME.innerHTML, 4);
+	request(inputValue, 4);
 }
 
 /*делаем запрос на сайт в соответствии с названием города*/
@@ -72,10 +73,11 @@ function request (city, num) {
 };
 /*обработаем ответ, как только его получим*/
 function requestHandling(city, num, response){
-	CITY_LIST_DOM[num].innerHTML = city + ' / ' + JSON.parse(response).list[0].main.temp + '°';
+	var parsedResponse = JSON.parse(response);
+	CITY_LIST_DOM[num].innerHTML = city + ' / ' + parsedResponse.list[0].main.temp + '°';
 	if (num == 4) {
 		var index = 0;
-		JSON.parse(response).list.forEach(function(item) {
+		parsedResponse.list.forEach(function(item) {
 			if(item.dt_txt.split(' ')[1] == '15:00:00') {
 				var dateValue = item.dt_txt.split(' ')[0].split('-');
 				FORECAST_ITEM_DATE[index].innerHTML = dateValue[2] + '.' + dateValue[1];
@@ -83,5 +85,6 @@ function requestHandling(city, num, response){
 				index++;
 			};
 		});
+		CURRENT_CITY_NAME.innerHTML = parsedResponse.city.name.toUpperCase();
 	};
 };
