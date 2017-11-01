@@ -5,6 +5,8 @@ const FORECAST_ITEM_DATE = document.getElementsByClassName('forecast__item-date'
 const FORECAST_ITEM_TEMP = document.getElementsByClassName('forecast__item-temp');
 const CURRENT_CITY = document.getElementsByClassName('cube-forecast')[0];
 const CURRENT_CITY_NAME = CURRENT_CITY.getElementsByClassName('cube__town--s')[0];
+const CURRENT_CITY_INPUT = CURRENT_CITY.getElementsByClassName('city-input')[0];
+const CURRENT_CITY_FORM = CURRENT_CITY.getElementsByClassName('city-form')[0];
 
 
 /*http://api.openweathermap.org/data/2.5/forecast?q=chicago&units=metric&cnt=7&APPID=afe096a642b6dde980dedc455ac4daf6*/
@@ -12,17 +14,23 @@ const CURRENT_CITY_NAME = CURRENT_CITY.getElementsByClassName('cube__town--s')[0
 /*очень странное действие, но не знаю, как иначе обрабатывать названия городов с пробелами*/
 var cityList = [];
 for (var i = 0; i < 6; i++) {
-	cityList[i] = CITY_LIST_DOM[i].innerHTML.split(' ');
-	cityList[i].pop();
-	cityList[i].pop();
-	if (cityList[i].length > 1) {
-		cityList[i] = cityList[i].join(' ');
-	} else {
-		cityList[i] = cityList[i][0];
-	}
+	var cityListLength = CITY_LIST_DOM[i].innerHTML.split(' ').length
+	if(cityListLength > 1) {
+		cityList[i] = CITY_LIST_DOM[i].innerHTML.split(' ');
+		cityList[i].pop();
+		cityList[i].pop();
+		if (cityList[i].length > 1) {
+			cityList[i] = cityList[i].join(' ');
+		} else {
+			cityList[i] = cityList[i][0];
+		};
+	};
 };
 
 /*узнаем погоду для известных нам городов раз в 10 минут*/
+for (var i = 0; i < 6; i++) {
+	request(cityList[i], i);
+};
 // var timerID = setInterval(function() {
 // 	for (var i = 0; i < 6; i++) {
 // 		request(cityList[i], i);
@@ -32,15 +40,20 @@ for (var i = 0; i < 6; i++) {
 /*Повесим выбор города по клику на центральный виджет*/
 CURRENT_CITY.onclick = function(e) {
 	var target = e.target;
-	const CURRENT_CITY_INPUT = CURRENT_CITY.getElementsByClassName('city-input')[0];
-	if(!CURRENT_CITY_INPUT) {
-		var input = document.createElement('input');
-		input.className = 'city-input';
-		input.placeholder = 'Choose you city';
-		CURRENT_CITY.insertBefore(input, CURRENT_CITY_NAME);
-		CURRENT_CITY_NAME.remove();
+	if(CURRENT_CITY_INPUT.classList.contains('invisible')) {
+		CURRENT_CITY_INPUT.value = '';
+		CURRENT_CITY_NAME.classList.toggle('invisible');
+		CURRENT_CITY_INPUT.classList.toggle('invisible');
 	};
 };
+
+CURRENT_CITY_FORM.onsubmit = function (e) {
+	e.preventDefault();
+	CURRENT_CITY_NAME.innerHTML = CURRENT_CITY_INPUT.value.toUpperCase();
+	CURRENT_CITY_NAME.classList.toggle('invisible');
+	CURRENT_CITY_INPUT.classList.toggle('invisible');
+	request(CURRENT_CITY_NAME.innerHTML, 4);
+}
 
 /*делаем запрос на сайт в соответствии с названием города*/
 function request (city, num) {
