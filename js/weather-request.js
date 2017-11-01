@@ -20,7 +20,7 @@ for (var i = 0; i < 5; i++) {
 
 /*узнаем погоду для известных нам городов*/
 for (var i = 0; i < 5; i++) {
-	request(cityList[i], i);
+	//request(cityList[i], i);
 	// CITY_LIST_DOM[i].innerHTML = cityList[i] + ' / ' + temp.list[0].main.temp + '°';
 }
 
