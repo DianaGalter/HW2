@@ -74,7 +74,8 @@ function request (city, num) {
 /*обработаем ответ, как только его получим*/
 function requestHandling(city, num, response){
 	var parsedResponse = JSON.parse(response);
-	CITY_LIST_DOM[num].innerHTML = city + ' / ' + parsedResponse.list[0].main.temp + '°';
+	var cityName = parsedResponse.city.name.toUpperCase();
+	CITY_LIST_DOM[num].innerHTML = cityName + ' / ' + parsedResponse.list[0].main.temp + '°';
 	if (num == 4) {
 		var index = 0;
 		parsedResponse.list.forEach(function(item) {
@@ -85,6 +86,7 @@ function requestHandling(city, num, response){
 				index++;
 			};
 		});
-		CURRENT_CITY_NAME.innerHTML = parsedResponse.city.name.toUpperCase();
+		l(parsedResponse.city.name.toUpperCase());
+		CURRENT_CITY_NAME.innerHTML = cityName;
 	};
 };
