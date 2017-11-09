@@ -1,0 +1,25 @@
+
+.cities {
+    position: absolute;
+    width: 70%;
+    padding: 1%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    text-align: justify;
+    line-height: 1.5;
+    border: 1px dashed SteelBlue;
+    border-radius: 3%;
+}
+.cities__title {
+    margin: 0;
+    text-align: center;
+}
+.cities__p {
+    margin: 0;
+    text-indent: 1.5rem;
+}
+.cities__ul {
+    margin: 0;
+}
