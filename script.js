@@ -2,36 +2,49 @@
 var l = console.log;
 const API_KEY = 'afe096a642b6dde980dedc455ac4daf6';
 const CITY_LIST = {
-	cities: ['Manchester', 'Liverpool', 'Bristol', 'Glasgow', 'Edinburgh', 'Cardiff'],
-	direction: 'up'/*'down'*/
+	cities: ['Manchester', 'Liverpool', 'Bristol', 'Glasgow', 'Edinburgh', 'Cardiff']
 };
 const CITIES_LENGTH = 6;
-const TOP_POINT = $('.cities__li')[0].getBoundingClientRect().top;
-const BOTTOM_POINT = $('.cities__li')[CITIES_LENGTH-1].getBoundingClientRect().top;
-const LEFT_POINT = Math.round($('.cities__li')[0].getBoundingClientRect().left);
-const left_shift = `${LEFT_POINT + 200}px`;
+const TOP_POINT = $('.cities__ul')[0].getBoundingClientRect().top;
+const BOTTOM_POINT = $('.cities__ul')[0].getBoundingClientRect().bottom;
+const INSERT_POINT = $('.cities__ul')[0];
 
+/*ulPlugin' arguments: 'up'(default) or 'down'*/
 $(document).ready(function() {
-	$('.cities__li').ulPlugin();
+	$('.cities__li').ulPlugin('up');
 });
 
 (function ($) {
-    $.fn.ulPlugin = function() {
-        /*this.each(function(i, el){
+    $.fn.ulPlugin = function(dir) {
+    	let direction;
+        this.each(function(i, el){
         	setTemperature(el);
-        });*/
-        this.click(function(e) {
-     		const DIR = CITY_LIST.direction;
-     		let target = e.target;
+        });
+        
+	    this.click(function(e) {
+	 		let target = e.target;
+	 		if (dir == 'down') {
+	        	direction = BOTTOM_POINT - target.getBoundingClientRect().bottom;
+	        	
+	        } else {
+	        	direction = TOP_POINT - target.getBoundingClientRect().top;
+	        };
 		    jQuery(target).animate({
-		    	left: left_shift
+		    	top: direction
 		    }, 2000, function(){
-		    	l('aaaa!');
+		    	jQuery(target).css('position', 'inherit');
+		    	if(dir == 'down') {
+		    		INSERT_POINT.appendChild(target);
+		    	} else {
+		    		INSERT_POINT.insertBefore(target, INSERT_POINT.children[0]);
+		    	};
 		    });
-		 });
+		});
     };
 
 })(jQuery);
+
+
 
 function animation(e) {
      

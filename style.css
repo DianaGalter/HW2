@@ -23,3 +23,6 @@
 .cities__ul {
     margin: 0;
 }
+.cities__li {
+    position: relative;
+}
