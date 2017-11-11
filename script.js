@@ -11,26 +11,21 @@ const INSERT_POINT = $('.cities__ul')[0];
 
 /*ulPlugin' arguments: 'up'(default) or 'down'*/
 $(document).ready(function() {
-	$('.cities__li').ulPlugin('up');
+	$('.cities__li').ulPlugin('down');
 });
 
 (function ($) {
     $.fn.ulPlugin = function(dir) {
-    	let direction;
+    	let shift;
         this.each(function(i, el){
         	setTemperature(el);
         });
         
 	    this.click(function(e) {
-	 		let target = e.target;
-	 		if (dir == 'down') {
-	        	direction = BOTTOM_POINT - target.getBoundingClientRect().bottom;
-	        	
-	        } else {
-	        	direction = TOP_POINT - target.getBoundingClientRect().top;
-	        };
+	    	let target = e.target;
+	 		calcShift();
 		    jQuery(target).animate({
-		    	top: direction
+		    	top: shift
 		    }, 2000, function(){
 		    	jQuery(target).css('position', 'inherit');
 		    	if(dir == 'down') {
@@ -39,6 +34,18 @@ $(document).ready(function() {
 		    		INSERT_POINT.insertBefore(target, INSERT_POINT.children[0]);
 		    	};
 		    });
+
+		    function calcShift() {
+		 		let targetTop = target.getBoundingClientRect().top;
+		 		let targetBottom = target.getBoundingClientRect().bottom;
+		 		let targetSemiHeigth = (targetBottom - targetTop) / 2;
+		 		if (dir == 'down') {
+		        	shift = BOTTOM_POINT - targetBottom + targetSemiHeigth;
+		        	
+		        } else {
+		        	shift = TOP_POINT - targetBottom + targetSemiHeigth;
+		        };
+		    };
 		});
     };
 
