@@ -8,8 +8,8 @@ const CITY_LIST = {
 const CITIES_LENGTH = 6;
 const TOP_POINT = $('.cities__li')[0].getBoundingClientRect().top;
 const BOTTOM_POINT = $('.cities__li')[CITIES_LENGTH-1].getBoundingClientRect().top;
-const LEFT_POINT = Math.round($('.cities__li')[0].getBoundingClientRect().left) + 200;
-const left_shift = `${LEFT_POINT}px`;
+const LEFT_POINT = Math.round($('.cities__li')[0].getBoundingClientRect().left);
+const left_shift = `${LEFT_POINT + 200}px`;
 
 $(document).ready(function() {
 	$('.cities__li').ulPlugin();
@@ -23,7 +23,7 @@ $(document).ready(function() {
         this.click(function(e) {
      		const DIR = CITY_LIST.direction;
      		let target = e.target;
-		    target.animate({
+		    jQuery(target).animate({
 		    	left: left_shift
 		    }, 2000, function(){
 		    	l('aaaa!');
