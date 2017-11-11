@@ -1,5 +1,5 @@
 'use strict'
-var l = console.log;
+
 const API_KEY = 'afe096a642b6dde980dedc455ac4daf6';
 const CITY_LIST = {
 	cities: ['Manchester', 'Liverpool', 'Bristol', 'Glasgow', 'Edinburgh', 'Cardiff']
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		    jQuery(target).animate({
 		    	top: shift
 		    }, 2000, function(){
-		    	jQuery(target).css('position', 'inherit');
+		    	jQuery(target).css('position', 'inherit').css('color', 'green');
 		    	if(dir == 'down') {
 		    		INSERT_POINT.appendChild(target);
 		    	} else {
@@ -75,7 +75,7 @@ function request (city, li) {
 	xhr.send();
 	xhr.onload = function (){
 		if (xhr.status != 200) {
-			l(xhr.status + ': ' + xhr.statusText);
+			console.warn(xhr.status + ': ' + xhr.statusText);
 		} else {
 			requestHandling(city, xhr.responseText, li);
 		};
