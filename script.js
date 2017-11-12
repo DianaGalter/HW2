@@ -16,14 +16,13 @@ $(document).ready(function() {
 
 (function ($) {
     $.fn.ulPlugin = function(dir) {
-    	let shift;
         this.each(function(i, el){
         	setTemperature(el);
         });
         
 	    this.click(function(e) {
 	    	let target = e.target;
-	 		calcShift();
+	 		let shift = calcShift(target, dir);
 		    jQuery(target).animate({
 		    	top: shift
 		    }, 2000, function(){
@@ -35,27 +34,23 @@ $(document).ready(function() {
 		    	};
 		    });
 
-		    function calcShift() {
-		 		let targetTop = target.getBoundingClientRect().top;
-		 		let targetBottom = target.getBoundingClientRect().bottom;
-		 		let targetSemiHeigth = (targetBottom - targetTop) / 2;
-		 		if (dir == 'down') {
-		        	shift = BOTTOM_POINT - targetBottom + targetSemiHeigth;
-		        	
-		        } else {
-		        	shift = TOP_POINT - targetBottom + targetSemiHeigth;
-		        };
-		    };
+		    
 		});
     };
 
 })(jQuery);
 
+function calcShift(target, dir) {
+	let targetTop = target.getBoundingClientRect().top;
+	let targetBottom = target.getBoundingClientRect().bottom;
+	let targetSemiHeigth = (targetBottom - targetTop) / 2;
+	if (dir == 'down') {
+		return BOTTOM_POINT - targetBottom + targetSemiHeigth;
+	} else {
+		return TOP_POINT - targetBottom + targetSemiHeigth;
+	};
+};
 
-
-function animation(e) {
-     
- };
 function setTemperature(el) {
 	var cityName = el;
 	var cityNameInner = cityName.innerHTML;
